@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,23 +21,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recycler: RecyclerView
     private lateinit var slidePanel: SlidingUpPanelLayout
     private lateinit var slideLayout: ConstraintLayout
-    private lateinit var textDragContent: TextView
+    private lateinit var dragContainer: FrameLayout
     private lateinit var maskView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recycler = recycler_home
-        slidePanel = layout_home_panel
-        slideLayout = layout_home_slide_view
-        textDragContent = text_drag_content
-        maskView = view_mask
+        recycler = home_recycler
+        slidePanel = home_slide_panel
+        slideLayout = home_slide_view
+        dragContainer = home_drag_container
+        maskView = home_view_mask
 
         slideLayout.setOnClickListener {
             slidePanel.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
-            view_mask.visibility = View.GONE
+            home_view_mask.visibility = View.GONE
         }
+        maskView.setOnClickListener(View.OnClickListener {  })
 
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = JSWeddingItemAdapter(this,jsItemCallback)
@@ -46,14 +48,25 @@ class MainActivity : AppCompatActivity() {
 
     private val jsItemCallback = object : JSWeddingItemAdapter.JsItemCallback {
         override fun onClick(type: Int) {
+
+            val transaction = supportFragmentManager.beginTransaction()
             when(type){
-                0->{textDragContent.text = "About Us"}
-                1->{textDragContent.text = "Wedding"}
-                2->{textDragContent.text = "Video"}
-                3->{textDragContent.text = "Place"}
+                0->{
+                    transaction.replace(R.id.home_drag_container,FragmentAboutUs())
+                }
+                1->{
+                    transaction.replace(R.id.home_drag_container,FragmentWeddingPicture())
+                }
+                2->{
+                    transaction.replace(R.id.home_drag_container,FragmentWeddingVideo())
+                }
+                3->{
+                    transaction.replace(R.id.home_drag_container,FragmentWeddingInfo())
+                }
             }
+            transaction.commit()
             slidePanel.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
-            view_mask.visibility = View.VISIBLE
+            home_view_mask.visibility = View.VISIBLE
         }
     }
 

@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var slidePanel: SlidingUpPanelLayout
     private lateinit var slideLayout: ConstraintLayout
     private lateinit var textDragContent: TextView
+    private lateinit var maskView: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +31,12 @@ class MainActivity : AppCompatActivity() {
         slidePanel = layout_home_panel
         slideLayout = layout_home_slide_view
         textDragContent = text_drag_content
+        maskView = view_mask
 
-        slideLayout.setOnClickListener { slidePanel.panelState = SlidingUpPanelLayout.PanelState.HIDDEN }
+        slideLayout.setOnClickListener {
+            slidePanel.panelState = SlidingUpPanelLayout.PanelState.HIDDEN
+            view_mask.visibility = View.GONE
+        }
 
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = JSWeddingItemAdapter(this,jsItemCallback)
@@ -48,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 3->{textDragContent.text = "Place"}
             }
             slidePanel.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
+            view_mask.visibility = View.VISIBLE
         }
     }
 

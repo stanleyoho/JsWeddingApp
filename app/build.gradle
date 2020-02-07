@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/stanleylin/Desktop/JsWeddingApp/app/key_debug.keystore')
+            storePassword 'jswedding2020'
+            keyAlias = 'jswedding2020'
+            keyPassword 'jswedding2020'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.js.wedding.app"

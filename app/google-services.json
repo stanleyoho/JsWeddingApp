@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "329559217252",
+    "firebase_url": "https://jsweddingapp2020.firebaseio.com",
+    "project_id": "jsweddingapp2020",
+    "storage_bucket": "jsweddingapp2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329559217252:android:db6245f7f280a11d663b71",
+        "android_client_info": {
+          "package_name": "com.js.wedding.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329559217252-q033jr7kkljdosj0bv4reje6oqqidstb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBVOthGRKMvOexcpGHspN-0OqMd2wcp48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329559217252-q033jr7kkljdosj0bv4reje6oqqidstb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

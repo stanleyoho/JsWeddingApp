@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.google.gms.google-services'
+
 android {
     signingConfigs {
         debug {
@@ -42,5 +44,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //slide layout
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    //fireBase-database
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+    //fireBase-analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }

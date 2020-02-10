@@ -4,30 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/text_propose_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/media_info_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:text="propose_day"/>
-
-    <TextView
-        android:id="@+id/text_propose_show_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/text_propose_day"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:text="propose_show_time"/>
+        android:layout_margin="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

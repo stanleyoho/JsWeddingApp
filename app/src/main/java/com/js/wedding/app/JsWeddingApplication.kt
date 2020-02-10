@@ -24,6 +24,7 @@ class JsWeddingApplication : Application(){
                         if(item.key == "jsWeddingMedia"){
                             val type =  object : GenericTypeIndicator<ArrayList<WeddingMediaModel>>(){}
                             val mediaList = item.getValue(type)
+                            InstanceData.jsMediaDataList = mediaList?: ArrayList<WeddingMediaModel>()
                             Log.d("onDataChange","media list : ${mediaList.toString()}")
                         }else{
                             Log.d("onDataChange","media key not match")
